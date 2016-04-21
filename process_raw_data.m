@@ -1,10 +1,11 @@
-function perf = process_raw_data(input_file, output_file, extra)
+function [all_perf, max_perf] = process_raw_data(input_file, output_file, extra)
 
 A = importdata(input_file);
 
 [H_A, W_A] = size(A);
 
-perf = A(:,end);
+all_perf = A(:,end);
+max_perf = zeros(H_A/11,1);
 
 % build label and feature set
 Data_Set_Label = zeros(H_A/11,1);
@@ -12,6 +13,7 @@ Data_Set_Feature = zeros(H_A/11,5);
 for n = 1 : H_A/11
    Index = 11*(n-1)+1:11*n;
    [Y,I] = min(A(Index,W_A));
+   max_perf(n,1) = Y;
    Data_Set_Label(n) = A(11*(n-1)+I,5);
    Data_Set_Feature(n,:) = [A(11*(n-1)+I,1:4),A(11*(n-1)+I,6)];
 end
