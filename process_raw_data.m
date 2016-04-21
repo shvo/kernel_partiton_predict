@@ -1,8 +1,10 @@
-function y = process_raw_data(input_file, output_file, extra)
+function perf = process_raw_data(input_file, output_file, extra)
 
 A = importdata(input_file);
 
 [H_A, W_A] = size(A);
+
+perf = A(:,end);
 
 % build label and feature set
 Data_Set_Label = zeros(H_A/11,1);
@@ -23,4 +25,4 @@ Data_Set_Feature = [Data_Set_Feature,Extra_Feature];
 
 save(output_file,'Data_Set_Label','Data_Set_Feature');
 
-y = strcat('successfully saved to ', output_file);
+display(strcat('successfully saved to ', output_file));

@@ -17,3 +17,5 @@ rbf_model = svmtrain(label, feature,'-t 2 -c 32 -g 2 -q');  % SVM
 % predict jacobi2d
 [jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, linear_model);
 [jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, rbf_model);
+
+
