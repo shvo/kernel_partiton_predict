@@ -7,31 +7,31 @@ data_path = './../data/';
 input_file = strcat(raw_data_path,'micromm-ts.log');
 output_file = strcat(data_path,'micromm.mat');
 clang_info = [7, 11, 11, 0, 3, 4];
-process_raw_data(input_file, output_file, clang_info);
+[micro_mm_perf, micro_mm_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
 % read micro-mm-sfp
 input_file = strcat(raw_data_path,'micromm-sfp-ts.log');
 output_file = strcat(data_path,'micromm-sfp.mat');
 clang_info = [7, 11, 11, 2, 1, 4];
-process_raw_data(input_file, output_file, clang_info);
+[micro_mm_sfp_perf, micro_mm_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
   % read micro-gemm
 input_file = strcat(raw_data_path,'microgemm-ts.log');
 output_file = strcat(data_path,'microgemm.mat');
 clang_info = [11, 15, 15, 0, 5, 4];
-process_raw_data(input_file, output_file, clang_info);
+[micro_gemm_perf, micro_gemm_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
 % read micro-gemm-sfp
 input_file = strcat(raw_data_path,'microgemm-sfp-ts.log');
 output_file = strcat(data_path,'microgemm-sfp.mat');
 clang_info = [11, 15, 15, 4, 1, 4];
-process_raw_data(input_file, output_file, clang_info);
+[micro_gemm_sfp_perf, micro_gemm_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
   % read micro-jacobi-int
 input_file = strcat(raw_data_path,'microjacobi1d-ts-int.log');
 output_file = strcat(data_path,'microjacobi1d-ts-int.mat');
 clang_info = [13, 25, 25, 1, 9, 12];
-process_raw_data(input_file, output_file, clang_info);
+[micro_jacobi_perf, micro_jacobi_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
 
  % read mm
