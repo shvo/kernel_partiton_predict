@@ -1,6 +1,6 @@
 % linear model
 tic
-linear_model = svmtrain(label, feature,'-t 0 -c 16 -q');  % SVM
+linear_model = svmtrain(label, feature,'-t 0 -c 32 -q');  % SVM
 toc
 
 % rbf model
@@ -10,9 +10,15 @@ rbf_model = svmtrain(label, feature,'-t 2 -c 32 -g 2 -q');  % SVM
 [mm_predict_label, mm_accuracy, mm_dec_values] = svmpredict(mm_label, mm_feature, linear_model);
 %[mm_predict_label, mm_accuracy, mm_dec_values] = svmpredict(mm_label, mm_feature, rbf_model);
 
+% predict mm-sfp
+[mm_sfp_predict_label, mm_sfp_accuracy, mm_sfp_dec_values] = svmpredict(mm_sfp_label, mm_sfp_feature, linear_model);
+
 % predict gemm
 [gemm_predict_label, gemm_accuracy, gemm_dec_values] = svmpredict(gemm_label, gemm_feature, linear_model);
 %[gemm_predict_label, gemm_accuracy, gemm_dec_values] = svmpredict(gemm_label, gemm_feature, rbf_model);
+
+% predict gemm-sfp
+[gemm_sfp_predict_label, gemm_sfp_accuracy, gemm_sfp_dec_values] = svmpredict(gemm_sfp_label, gemm_sfp_feature, linear_model);
 
 % predict jacobi2d
 [jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, linear_model);
@@ -88,4 +94,3 @@ jacobi2d_achieved_avg_perf = mean(jacobi2d_achieved_perf)
 min(jacobi2d_achieved_perf)
 max(jacobi2d_achieved_perf)
 length(find(jacobi2d_predict_perf_rank==2))
-
