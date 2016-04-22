@@ -24,6 +24,19 @@ rbf_model = svmtrain(label, feature,'-t 2 -c 32 -g 2 -q');  % SVM
 [jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, linear_model);
 %[jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, rbf_model);
 
+% predict gesummv
+[gesummv_predict_label, gesummv_accuracy, gesummv_dec_values] = svmpredict(gesummv_label, gesummv_feature, linear_model);
+
+% predict gesummv-sfp
+[gesummv_sfp_predict_label, gesummv_sfp_accuracy, gesummv_sfp_dec_values] = svmpredict(gesummv_sfp_label, gesummv_sfp_feature, linear_model);
+
+% predict syrk
+[syrk_predict_label, syrk_accuracy, syrk_dec_values] = svmpredict(syrk_label, syrk_feature, linear_model);
+
+% predict syrk
+[syrk_sfp_predict_label, syrk_sfp_accuracy, syrk_sfp_dec_values] = svmpredict(syrk_sfp_label, syrk_sfp_feature, linear_model);
+
+
 
 % mm result analysis
 LL = length(mm_predict_label);

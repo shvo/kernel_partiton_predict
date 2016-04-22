@@ -39,7 +39,7 @@ feature = [micro_mm_feature;
            ];
 
        
-% get training data
+% get prediction data
 input_file = strcat(data_path, 'mm.mat')
 [mm_label, mm_feature] = read_data(input_file);
 
@@ -55,6 +55,19 @@ input_file = strcat(data_path, 'gemm-sfp.mat')
 input_file = strcat(data_path, 'jacobi2d-ts-int.mat')
 [jacobi2d_label, jacobi2d_feature] = read_data(input_file);
 
+input_file = strcat(data_path, 'gesummv.mat')
+[gesummv_label, gesummv_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'gesummv-sfp.mat')
+[gesummv_sfp_label, gesummv_sfp_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'syrk.mat')
+[syrk_label, syrk_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'syrk-sfp.mat')
+[syrk_sfp_label, syrk_sfp_feature] = read_data(input_file);
+
+
 
 
 % feature scaling
@@ -65,6 +78,11 @@ mm_sfp_feature = feature_scaling(feature_standard, mm_sfp_feature);
 gemm_feature = feature_scaling(feature_standard, gemm_feature);
 gemm_sfp_feature = feature_scaling(feature_standard, gemm_sfp_feature);
 jacobi2d_feature = feature_scaling(feature_standard, jacobi2d_feature);
+gesummv_feature = feature_scaling(feature_standard, gesummv_feature);
+gesummv_sfp_feature = feature_scaling(feature_standard, gesummv_sfp_feature);
+syrk_feature = feature_scaling(feature_standard, syrk_feature);
+syrk_sfp_feature = feature_scaling(feature_standard, syrk_sfp_feature);
+
 
 
 % delte II feature
@@ -74,6 +92,10 @@ mm_sfp_feature(:,3) = [];
 gemm_feature(:,3) = [];
 gemm_sfp_feature(:,3) = [];
 jacobi2d_feature(:,3) = [];
+gesummv_feature(:,3) = [];
+gesummv_sfp_feature(:,3) = [];
+syrk_feature(:,3) = [];
+syrk_sfp_feature(:,3) = [];
 
 
 % predict
