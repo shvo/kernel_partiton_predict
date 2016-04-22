@@ -44,7 +44,7 @@ clang_info = [13, 19, 19, 0,11, 15];
 input_file = strcat(raw_data_path,'mm-ts-sfp.log');
 output_file = strcat(data_path,'mm-sfp.mat');
 clang_info = [13, 19, 19, 2, 9, 15];
-[mm_perf, mm_max_perf] = process_raw_data(input_file, output_file, clang_info);
+[mm_sfp_perf, mm_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
   % read gemm
 input_file = strcat(raw_data_path,'gemm-ts.log');
@@ -56,7 +56,7 @@ clang_info = [17, 24, 24, 0, 7, 12];
 input_file = strcat(raw_data_path,'gemm-sfp-ts.log');
 output_file = strcat(data_path,'gemm-sfp.mat');
 clang_info = [17, 24, 24, 4, 3, 12];
-[gemm_perf, gemm_max_perf] = process_raw_data(input_file, output_file, clang_info);
+[gemm_sfp_perf, gemm_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
   % read jacobi-2d-int
 input_file = strcat(raw_data_path,'jacobi2d-ts-int.log');
