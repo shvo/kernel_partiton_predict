@@ -1,5 +1,4 @@
 % prepare data
-
 raw_data_path = './../raw_data/';
 data_path = './../data/';
 
@@ -34,6 +33,7 @@ clang_info = [13, 25, 25, 1, 9, 12];
 [micro_jacobi_perf, micro_jacobi_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
 
+
  % read mm
 input_file = strcat(raw_data_path,'mm-ts.log');
 output_file = strcat(data_path,'mm.mat');
@@ -63,3 +63,29 @@ input_file = strcat(raw_data_path,'jacobi2d-ts-int.log');
 output_file = strcat(data_path,'jacobi2d-ts-int.mat');
 clang_info = [17, 41, 41, 1, 14, 20];
 [jacobi2d_int_perf, jacobi2d_int_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+
+ % read gesummv
+input_file = strcat(raw_data_path,'gesummv-ts.log');
+output_file = strcat(data_path,'gesummv.mat');
+clang_info = [18, 44, 44, 0, 9, 8];
+[gesummv_perf, gesummv_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read gesummv-sfp
+input_file = strcat(raw_data_path,'gesummv-sfp-ts.log');
+output_file = strcat(data_path,'gesummv-sfp.mat');
+clang_info = [18, 44, 44, 7, 2, 8];
+[gesummv_sfp_perf, gesummv_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+% read syrk
+input_file = strcat(raw_data_path,'syrk-ts.log');
+output_file = strcat(data_path,'syrk.mat');
+clang_info = [15, 27, 27, 0, 7, 12];
+[syrk_perf, syrk_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read syrk-sfp
+input_file = strcat(raw_data_path,'syrk-sfp-ts.log');
+output_file = strcat(data_path,'syrk-sfp.mat');
+clang_info = [15, 27, 27, 4, 3, 12];
+[syrk_sfp_perf, syrk_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+

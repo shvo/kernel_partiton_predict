@@ -82,17 +82,34 @@ jacobi2d_feature(:,3) = [];
 
 
 % build training data
-perf = [micro_mm_max_perf;
-        micro_mm_sfp_max_perf;
-        micro_gemm_max_perf;
-        micro_gemm_sfp_max_perf;
-        micro_jacobi_max_perf;
-        ];
+%perf = [micro_mm_max_perf;
+%        micro_mm_sfp_max_perf;
+%        micro_gemm_max_perf;
+%        micro_gemm_sfp_max_perf;
+%        micro_jacobi_max_perf;
+%        ];
 
 [micro_mm_comp_label, micro_mm_comp_feature] = build_comp_data(micro_mm_max_perf, micro_mm_feature);
 [micro_mm_sfp_comp_label, micro_mm_sfp_comp_feature] = build_comp_data(micro_mm_sfp_max_perf, micro_mm_sfp_feature);
 [micro_gemm_comp_label, micro_gemm_comp_feature] = build_comp_data(micro_gemm_max_perf, micro_gemm_feature);
 [micro_gemm_sfp_comp_label, micro_gemm_sfp_comp_feature] = build_comp_data(micro_gemm_sfp_max_perf, micro_gemm_sfp_feature);
 [micro_jacobi_comp_label, micro_jacobi_comp_feature] = build_comp_data(micro_jacobi_max_perf, micro_jacobi_feature);
+
+comp_label = [micro_mm_comp_label;
+              micro_mm_sfp_comp_label;
+              micro_gemm_comp_label;
+              micro_gemm_sfp_comp_label;
+              micro_jacobi_comp_label;
+              ];
+comp_feature = [micro_mm_comp_feature;
+                micro_mm_sfp_comp_feature;
+                micro_gemm_comp_feature;
+                micro_gemm_sfp_comp_feature;
+                micro_jacobi_comp_feature;
+               ];
+% linear comparator
+tic
+linear_comp_model = svmtrain(comp_label, comp_feature,'-t 0 -c 1 -q');  % SVM
+toc
 
 
