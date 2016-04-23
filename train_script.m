@@ -52,8 +52,11 @@ input_file = strcat(data_path, 'gemm.mat')
 input_file = strcat(data_path, 'gemm-sfp.mat')
 [gemm_sfp_label, gemm_sfp_feature] = read_data(input_file);
 
-input_file = strcat(data_path, 'jacobi2d-ts-int.mat')
+input_file = strcat(data_path, 'jacobi2d.mat')
 [jacobi2d_label, jacobi2d_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'jacobi2d-sfp.mat')
+[jacobi2d_sfp_label, jacobi2d_sfp_feature] = read_data(input_file);
 
 input_file = strcat(data_path, 'gesummv.mat')
 [gesummv_label, gesummv_feature] = read_data(input_file);
@@ -67,7 +70,23 @@ input_file = strcat(data_path, 'syrk.mat')
 input_file = strcat(data_path, 'syrk-sfp.mat')
 [syrk_sfp_label, syrk_sfp_feature] = read_data(input_file);
 
+input_file = strcat(data_path, 'syr2k.mat')
+[syr2k_label, syr2k_feature] = read_data(input_file);
 
+input_file = strcat(data_path, 'syr2k-sfp.mat')
+[syr2k_sfp_label, syr2k_sfp_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'conv2d.mat')
+[conv2d_label, conv2d_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'conv2d-sfp.mat')
+[conv2d_sfp_label, conv2d_sfp_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'conv3d.mat')
+[conv3d_label, conv3d_feature] = read_data(input_file);
+
+input_file = strcat(data_path, 'conv3d-sfp.mat')
+[conv3d_sfp_label, conv3d_sfp_feature] = read_data(input_file);
 
 
 % feature scaling
@@ -78,10 +97,17 @@ mm_sfp_feature = feature_scaling(feature_standard, mm_sfp_feature);
 gemm_feature = feature_scaling(feature_standard, gemm_feature);
 gemm_sfp_feature = feature_scaling(feature_standard, gemm_sfp_feature);
 jacobi2d_feature = feature_scaling(feature_standard, jacobi2d_feature);
+jacobi2d_sfp_feature = feature_scaling(feature_standard, jacobi2d_sfp_feature);
 gesummv_feature = feature_scaling(feature_standard, gesummv_feature);
 gesummv_sfp_feature = feature_scaling(feature_standard, gesummv_sfp_feature);
 syrk_feature = feature_scaling(feature_standard, syrk_feature);
 syrk_sfp_feature = feature_scaling(feature_standard, syrk_sfp_feature);
+syr2k_feature = feature_scaling(feature_standard, syr2k_feature);
+syr2k_sfp_feature = feature_scaling(feature_standard, syr2k_sfp_feature);
+conv2d_feature = feature_scaling(feature_standard, conv2d_feature);
+conv2d_sfp_feature = feature_scaling(feature_standard, conv2d_sfp_feature);
+conv3d_feature = feature_scaling(feature_standard, conv3d_feature);
+conv3d_sfp_feature = feature_scaling(feature_standard, conv3d_sfp_feature);
 
 
 
@@ -92,10 +118,17 @@ mm_sfp_feature(:,3) = [];
 gemm_feature(:,3) = [];
 gemm_sfp_feature(:,3) = [];
 jacobi2d_feature(:,3) = [];
+jacobi2d_sfp_feature(:,3) = [];
 gesummv_feature(:,3) = [];
 gesummv_sfp_feature(:,3) = [];
 syrk_feature(:,3) = [];
 syrk_sfp_feature(:,3) = [];
+syr2k_feature(:,3) = [];
+syr2k_sfp_feature(:,3) = [];
+conv2d_feature(:,3) = [];
+conv2d_sfp_feature(:,3) = [];
+conv3d_feature(:,3) = [];
+conv3d_sfp_feature(:,3) = [];
 
 
 % predict

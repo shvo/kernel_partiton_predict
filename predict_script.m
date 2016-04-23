@@ -24,6 +24,9 @@ rbf_model = svmtrain(label, feature,'-t 2 -c 32 -g 2 -q');  % SVM
 [jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, linear_model);
 %[jacobi2d_predict_label, jacobi2d_accuracy, jacobi2d_dec_values] = svmpredict(jacobi2d_label, jacobi2d_feature, rbf_model);
 
+% predict jacobi2d-sfp
+[jacobi2d_sfp_predict_label, jacobi2d_sfp_accuracy, jacobi2d_sfp_dec_values] = svmpredict(jacobi2d_sfp_label, jacobi2d_sfp_feature, linear_model);
+
 % predict gesummv
 [gesummv_predict_label, gesummv_accuracy, gesummv_dec_values] = svmpredict(gesummv_label, gesummv_feature, linear_model);
 
@@ -35,6 +38,25 @@ rbf_model = svmtrain(label, feature,'-t 2 -c 32 -g 2 -q');  % SVM
 
 % predict syrk
 [syrk_sfp_predict_label, syrk_sfp_accuracy, syrk_sfp_dec_values] = svmpredict(syrk_sfp_label, syrk_sfp_feature, linear_model);
+
+% predict syr2k
+[syr2k_predict_label, syr2k_accuracy, syr2k_dec_values] = svmpredict(syr2k_label, syr2k_feature, linear_model);
+
+% predict syr2k
+[syr2k_sfp_predict_label, syr2k_sfp_accuracy, syr2k_sfp_dec_values] = svmpredict(syr2k_sfp_label, syr2k_sfp_feature, linear_model);
+
+% predict conv2d
+[conv2d_predict_label, conv2d_accuracy, conv2d_dec_values] = svmpredict(conv2d_label, conv2d_feature, linear_model);
+
+% predict conv2d-sfp
+[conv2d_sfp_predict_label, conv2d_sfp_accuracy, conv2d_sfp_dec_values] = svmpredict(conv2d_sfp_label, conv2d_sfp_feature, linear_model);
+
+% predict conv3d
+[conv3d_predict_label, conv3d_accuracy, conv3d_dec_values] = svmpredict(conv3d_label, conv3d_feature, linear_model);
+
+% predict conv3d-sfp
+[conv3d_sfp_predict_label, conv3d_sfp_accuracy, conv3d_sfp_dec_values] = svmpredict(conv3d_sfp_label, conv3d_sfp_feature, linear_model);
+
 
 
 

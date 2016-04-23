@@ -59,10 +59,16 @@ clang_info = [17, 24, 24, 4, 3, 12];
 [gemm_sfp_perf, gemm_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
   % read jacobi-2d-int
-input_file = strcat(raw_data_path,'jacobi2d-ts-int.log');
-output_file = strcat(data_path,'jacobi2d-ts-int.mat');
-clang_info = [17, 41, 41, 1, 14, 20];
+input_file = strcat(raw_data_path,'jacobi2d-ts.log');
+output_file = strcat(data_path,'jacobi2d.mat');
+clang_info = [17, 45, 45, 1, 17, 20];
 [jacobi2d_int_perf, jacobi2d_int_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read jacobi-2d-sfp
+input_file = strcat(raw_data_path,'jacobi2d-sfp-ts.log');
+output_file = strcat(data_path,'jacobi2d-sfp.mat');
+clang_info = [17, 45, 45, 5, 13, 20];
+[jacobi2d_sfp_perf, jacobi2d_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
 
 
  % read gesummv
@@ -88,4 +94,44 @@ input_file = strcat(raw_data_path,'syrk-sfp-ts.log');
 output_file = strcat(data_path,'syrk-sfp.mat');
 clang_info = [15, 27, 27, 4, 3, 12];
 [syrk_sfp_perf, syrk_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+
+% read syr2k
+input_file = strcat(raw_data_path,'syr2k-ts.log');
+output_file = strcat(data_path,'syr2k.mat');
+clang_info = [15, 35, 35, 0, 22, 12];
+[syr2k_perf, syr2k_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read syr2k-sfp
+input_file = strcat(raw_data_path,'syr2k-sfp-ts.log');
+output_file = strcat(data_path,'syr2k-sfp.mat');
+clang_info = [15, 35, 35, 7, 15, 12];
+[syr2k_sfp_perf, syr2k_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+
+% read conv-2d-int
+input_file = strcat(raw_data_path,'conv2d-ts.log');
+output_file = strcat(data_path,'conv2d.mat');
+clang_info = [7, 43, 43, 0, 51, 8];
+[conv2d_int_perf, conv2d_int_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read conv-2d-sfp
+input_file = strcat(raw_data_path,'conv2d-sfp-ts.log');
+output_file = strcat(data_path,'conv2d-sfp.mat');
+clang_info = [7, 43, 43, 17, 34, 8];
+[conv2d_sfp_perf, conv2d_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+
+% read conv-3d-int
+input_file = strcat(raw_data_path,'conv3d-ts.log');
+output_file = strcat(data_path,'conv3d.mat');
+clang_info = [13, 86, 86, 0, 69, 12];
+[conv3d_int_perf, conv3d_int_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
+ % read conv-3d-sfp
+input_file = strcat(raw_data_path,'conv3d-sfp-ts.log');
+output_file = strcat(data_path,'conv3d-sfp.mat');
+clang_info = [13, 86, 86, 29, 40, 12];
+[conv3d_sfp_perf, conv3d_sfp_max_perf] = process_raw_data(input_file, output_file, clang_info);
+
 
